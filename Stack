@@ -1,0 +1,77 @@
+// stack
+#include<stdio.h>
+#include<stdlib.h>
+void push();
+void pop();
+void display();
+#define SIZE 100
+int stack[SIZE];
+int top = -1;
+
+int main()
+{
+    while(1)
+    {
+        int n;
+        printf("\nEnter your choice :");
+        scanf("%d",&n);
+        
+        switch(n)
+        {
+           case 1: push();
+           break;
+           case 2: pop();
+           break;
+           case 3: display();
+           break;
+           case 4: exit(0);
+           default : printf("\nEnter a valid value.\n");
+        }
+    }
+}
+
+ void push()
+ {
+     int num;
+     if(top == SIZE-1)
+     {
+         printf("\nStck is full.");
+     }
+     else
+     {
+         printf("\nEnter a number to be push :");
+         scanf("%d",&num);
+         top++;
+         stack[top] = num;
+         printf("%d\n",stack[top]);
+     }
+ }
+
+
+ void pop()
+ {
+     if(top == -1)
+     {
+         printf("Stack is empty.\n");
+     }
+     else{
+         printf("\n%d number is poped out.\n",stack[top]);
+          top--;
+     }
+ }
+
+ void display()
+ {
+     if(top == -1)
+     {
+         printf("Stack iss empty.");
+     }
+     else
+     {
+         printf("\n Your stack list is :");
+         for(int i=top; i>=0; i--)
+         {
+             printf("%d,",stack[i]);
+         }
+     }
+ }
